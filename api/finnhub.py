@@ -1,4 +1,3 @@
-import requests
 import finnhub
 import os
 from dotenv import load_dotenv
