@@ -7,11 +7,16 @@ stock_data = Stock_Data()
 def cli():
     pass
     
-@cli.command("quote", help="Testing")
-@click.argument("symbol")
-def quote_endpont(symbol):
+@cli.command("quote", help="Returns the current price of a stock ticker")
+@click.option("--ticker", prompt='Stock Ticker')
+def quote_endpont(ticker):
 
-    click.echo(stock_data.quote(symbol))
+    if stock_data.quote(f"{ticker}") == 0:
+        click.echo(f"{ticker}: Is not a valid stock ticker")
+    else:
+        click.echo(stock_data.quote(f"{ticker}"))
+    
+
  
 if __name__ == "__main__":
     cli()

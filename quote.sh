@@ -1,1 +1,1 @@
-python3 app.py quote $1
+python3 app.py quote
