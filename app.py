@@ -17,6 +17,7 @@ def quote_endpont(ticker):
         click.echo(click.style(ticker, fg='red') +
                    ": Is not a valid stock ticker")
     else:
+
         result = stock_data.quote(f"{ticker}")
         click.echo(click.style(f"{'$'}{result}", fg='green'))
 
