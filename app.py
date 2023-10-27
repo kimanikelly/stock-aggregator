@@ -12,9 +12,10 @@ def cli():
 def quote_endpont(ticker):
 
     if stock_data.quote(f"{ticker}") == 0:
-        click.echo(f"{ticker}: Is not a valid stock ticker")
+        click.echo(click.style(ticker,fg='red')+ ": Is not a valid stock ticker")
     else:
-        click.echo(stock_data.quote(f"{ticker}"))
+        result = stock_data.quote(f"{ticker}")
+        click.echo(click.style(f"{'$'}{result}",fg='green'))
     
 
  
