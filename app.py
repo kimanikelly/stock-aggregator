@@ -15,6 +15,8 @@ def cli():
 @click.option("--ticker", prompt='Stock Ticker')
 def quote_endpont(ticker):
 
+    ticker = ticker.upper()
+
     if stock_data.quote(f"{ticker}") == 0:
         click.echo(click.style(ticker, fg='red') +
                    ": Is not a valid stock ticker")
@@ -22,8 +24,8 @@ def quote_endpont(ticker):
 
         current_price = stock_data.quote(f"{ticker}")
 
-        click.echo("The current price of " f"{ticker} is: " +
-                   click.style(f"{'$'}{current_price}", fg='green'))
+        click.echo("The current price of " + ticker +
+                   " is: " + click.style(f"{'$'}{current_price}", fg='green'))
 
         sql = "INSERT INTO stock_prices (stock_ticker, current_price) VALUES (%s, %s)"
         val = (ticker, current_price)
