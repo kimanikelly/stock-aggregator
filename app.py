@@ -19,7 +19,14 @@ def quote_endpont(ticker):
     else:
 
         result = stock_data.quote(f"{ticker}")
+
         click.echo(click.style(f"{'$'}{result}", fg='green'))
+
+        stock_obj = {
+            "ticker": ticker.upper(),
+            "price": result
+        }
+        print(stock_obj)
 
 
 if __name__ == "__main__":
