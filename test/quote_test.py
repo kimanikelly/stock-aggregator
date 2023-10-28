@@ -12,13 +12,13 @@ def test_class_instance():
     assert (instance_status == True)
 
 
-def test_quote_for_valid_ticker():
+def test_quote_valid_ticker():
 
     assert (stock_data.quote(valid_ticker) > 0)
 
     assert (type(stock_data.quote(valid_ticker)) == float)
 
 
-def test_quote_for_invalid_ticker():
+def test_invalid_ticker():
 
     assert (stock_data.quote(invalid_ticker) == 0)
