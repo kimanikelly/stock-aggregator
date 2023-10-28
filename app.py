@@ -20,7 +20,8 @@ def quote_endpont(ticker):
 
         current_price = stock_data.quote(f"{ticker}")
 
-        click.echo(click.style(f"{'$'}{current_price}", fg='green'))
+        click.echo("The current price of " f"{ticker} is: " +
+                   click.style(f"{'$'}{current_price}", fg='green'))
 
 
 if __name__ == "__main__":
