@@ -4,7 +4,7 @@
 name: Python application
 
 env:
-  NAME: "FINNHUB_API_KEY"
+  FINNHUB_API_KEY:
 on:
   push:
     branches: ["main"]
