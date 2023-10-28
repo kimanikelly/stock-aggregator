@@ -9,3 +9,5 @@ aggregator_db = mysql.connector.connect(
     user="root",
     password=os.getenv("MYSQL_PASSWORD")
 )
+
+cursor = aggregator_db.cursor()
