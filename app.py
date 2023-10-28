@@ -1,5 +1,7 @@
 import click
+import time
 from stock_class import Stock_Data
+from database.db_connection import *
 
 stock_data = Stock_Data()
 
@@ -22,6 +24,12 @@ def quote_endpont(ticker):
 
         click.echo("The current price of " f"{ticker} is: " +
                    click.style(f"{'$'}{current_price}", fg='green'))
+
+        sql = "INSERT INTO stock_prices (stock_ticker, current_price) VALUES (%s, %s)"
+        val = (ticker, current_price)
+        cursor.execute(sql, val)
+
+        aggregator_db.commit()
 
 
 if __name__ == "__main__":
