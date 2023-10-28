@@ -1,4 +1,4 @@
-from finnhub_class import Stock_Data
+from stock_class import Stock_Data
 
 stock_data = Stock_Data()
 valid_ticker = "AMZN"
